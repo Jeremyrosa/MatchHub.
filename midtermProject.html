@@ -4,32 +4,33 @@
   <meta charset="UTF-8">
   <title>Soccer Match Tracker</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #F2F3FF;
-      padding: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-    .upcoming {
-      background-color: #f0f8ff;
-    }
-    .ongoing {
-      background-color: #d4edda;
-    }
-    .completed {
-      background-color: #e2e3e5;
-      color: #555;
-    }
-  </style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  .upcoming {
+    background-color: #cce5ff; /* bright blue */
+    color: #003366;
+    font-weight: bold;
+  }
+  .ongoing {
+    background-color: #d4edda; /* bright green */
+    color: #155724;
+    font-weight: bold;
+  }
+  .completed {
+    background-color: #f8f9fa; /* light grey */
+    color: #6c757d;
+    font-style: italic;
+  }
+</style>
 
   <script>
     // checks that html page has loaded
@@ -219,34 +220,8 @@
     </tr>
   </tbody>
 </table>
+</body>
 
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-  }
-  th, td {
-    padding: 12px;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-  .upcoming {
-    background-color: #cce5ff; /* bright blue */
-    color: #003366;
-    font-weight: bold;
-  }
-  .ongoing {
-    background-color: #d4edda; /* bright green */
-    color: #155724;
-    font-weight: bold;
-  }
-  .completed {
-    background-color: #f8f9fa; /* light grey */
-    color: #6c757d;
-    font-style: italic;
-  }
-</style>
+
 
 </html>
