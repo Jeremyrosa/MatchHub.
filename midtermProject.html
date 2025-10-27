@@ -53,7 +53,7 @@
         AddMatch();
       });
 
-    function AddMatch(teamAInput, teamBInput, matchTimeInput) {
+    function AddMatch(teamAInput, teamBInput, matchTimeInput, save=true) {
       // gets individual info from form
       const teamA = teamAInput || document.getElementById("teamA").value;
       const teamB = teamBInput || document.getElementById("teamB").value;
