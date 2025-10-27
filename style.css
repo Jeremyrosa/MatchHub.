@@ -1,0 +1,28 @@
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  .upcoming {
+    background-color: #cce5ff; /* bright blue */
+    color: #003366;
+    font-weight: bold;
+  }
+  .ongoing {
+    background-color: #d4edda; /* bright green */
+    color: #155724;
+    font-weight: bold;
+  }
+  .completed {
+    background-color: #f8f9fa; /* light grey */
+    color: #6c757d;
+    font-style: italic;
+  }
+</style>
