@@ -1,3 +1,3 @@
 # MidtermProject
 
-# git clone https://github.com/Jeremyrosa/MidtermProject.git
+# Git: clone https://github.com/Jeremyrosa/MidtermProject.git
