@@ -115,9 +115,15 @@ function markAsCompleted(row, statusCell, countdownCell) {
 
 // modifies "kickoff" time string so that it can be processed properly
 function kickoffString(str) {
-  str = str.replace(/–/g, ':').trim();
-  str = str.replace(/[:]/, ' ');
-  return new Date(str);
+  // replace en dash, em dash, or hyphen with a single space
+  str = str.replace(/[–—-]/g, ' ').trim();
+  // replace multiple spaces with single space
+  str = str.replace(/\s+/g, ' ');
+  const parsedDate = new Date(str);
+  if (isNaN(parsedDate)) {
+    console.warn("Invalid date:", str);
+  }
+  return parsedDate;
 }
 
 function upcomingMatchesCountdown() { // identifies which rows are "upcoming"
@@ -137,11 +143,15 @@ function upcomingMatchesCountdown() { // identifies which rows are "upcoming"
       const dates = kickoffString(timeCell.textContent); // converts "kickoff" to readable date
 
       // check if past or upcoming dates
-      if (dates.getTime() < new Date().getTime()) {
-        // mark as completed for past dates
+      if (isNaN(dates.getTime())) {
+        // if date is invalid, mark as completed
+        console.warn("Skipping invalid date:", timeCell.textContent);
+        markAsCompleted(row, statusCell, countdownCell);
+      } else if (dates.getTime() < new Date().getTime()) {
+        // past dates → mark as completed
         markAsCompleted(row, statusCell, countdownCell);
       } else {
-        // start countdown for upcoming dates
+        // future dates → start countdown
         startCountdown(dates, countdownId, row, statusCell);
       }
     }
