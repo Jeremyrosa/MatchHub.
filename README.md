@@ -12,3 +12,4 @@ It allows users to add, view, and track upcoming soccer matches with countdown t
 #Each match is categorized as Upcoming, Ongoing, or Completed, with color highlights for easy tracking
 
 Logo test images were generateed using AI
+Soccer player silhouette images were sourced from Pinterest. The original backgrounds for each silhouette image was cut out using Pixelcut AI.
