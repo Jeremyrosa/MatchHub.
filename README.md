@@ -1,10 +1,10 @@
 # MidtermProject
 
-#Group Members
-#Elianny 
-#Jeanne
-#Jeremy - HTML & CSS
-#Shari
+# Group Members
+# Elianny 
+# Jeanne
+# Jeremy - HTML & CSS
+# Shari
 
 # Git: clone https://github.com/Jeremyrosa/MidtermProject.git
 #This project is a simple Soccer Match Tracker web application built using HTML, CSS, and JavaScript.
