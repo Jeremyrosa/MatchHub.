@@ -4,7 +4,7 @@
 # Elianny - JavaScript
 # Jeanne - HTML & CSS
 # Jeremy - HTML & CSS
-# Shari
+# Shari - JavaScript
 
 # Git: clone https://github.com/Jeremyrosa/MidtermProject.git
 #This project is a simple Soccer Match Tracker web application built using HTML, CSS, and JavaScript.
