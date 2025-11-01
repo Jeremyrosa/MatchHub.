@@ -60,13 +60,15 @@ body {
   .bottom-bar {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   background-color: #585766;
   display: flex;
   justify-content: space-around; /*even spacing between images */
   align-items: center;
   padding: 10px 0;       /* adjusts vertical spacing */
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  z-index:1000;
   }
 
 /* Style for each image in the bottom bar */
