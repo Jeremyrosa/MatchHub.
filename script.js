@@ -6,7 +6,54 @@ document.addEventListener("DOMContentLoaded", () => { // checks that html page h
   });
 
   upcomingMatchesCountdown(); // function starts countdowns for existing dates
+  loadMatches(); //load matches from localStorage
 });
+// Save matches to localStorage
+function saveMatch(teamA, teamB, matchTime){
+  let matches = JSON.parse(localStorage.getItem("matches")) || [];
+  matches.push({teamA, teamB, matchTime});
+  localStorage.setItem("matches", JSON.stringify(matches));
+}
+
+// Loads saved matches from localStorage
+function loadMatches(){
+  let matches = JSON.parse(localStorage.getItem("matches")) || [];
+  //adds to table
+  for(let match of matches) {
+    const tableBody = document.getElementById("matchTable").getElementsByTagName("tbody")[0];
+    const newRow = document.createElement("tr");
+    newRow.className = "upcoming";
+    newRow.classList.add("user-added");
+
+    const teamsCell = newRow.insertCell(0);
+    const timeCell = newRow.insertCell(1);
+    const countdownCell = newRow.insertCell(2);
+    const statusCell = newRow.insertCell(3);
+
+    teamsCell.textContent = `${match.teamA} vs ${match.teamB}`;
+
+    const dates = new Date(match.matchTime);
+    timeCell.textContent = dates.toLocaleString('en-US', {
+      month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'
+    });
+
+    statusCell.textContent = "Upcoming";
+    const countdownId = "countdown_" + Date.now();
+    countdownCell.id = countdownId;
+
+    startCountdown(dates, countdownId, newRow, statusCell);
+
+    const rows = Array.from(tableBody.rows);
+    let inserted = false;
+    for (let r of rows) {
+      if (r.classList.contains("completed")) {
+        tableBody.insertBefore(newRow, r);
+        inserted = true;
+        break;
+      }
+    }
+  }
+}
 
 function AddMatch() { // creates new rows with new match dates
   //input values
@@ -14,10 +61,13 @@ function AddMatch() { // creates new rows with new match dates
   const teamB = document.getElementById("teamB").value;
   const matchTime = document.getElementById("matchTime").value; 
 
+  saveMatch(teamA, teamB, matchTime) //save to localStorage
+
   const tableBody = document.getElementById("matchTable").getElementsByTagName("tbody")[0]; // refers to the table body
 
   const newRow = document.createElement("tr");  // new row is created for upcoming match
   newRow.className = "upcoming";
+  newRow.classList.add("user-added");
 
   // new row content
   const teamsCell = newRow.insertCell(0);
@@ -154,4 +204,15 @@ function upcomingMatchesCountdown() { // identifies which rows are "upcoming"
       }
     }
   }
+}
+
+// Clear matches from localStorage
+function clearAllMatches(){
+  localStorage.removeItem("matches");
+
+  const tableBody = document.getElementById("matchTable").getElementsByTagName("tbody")[0];
+
+  // deletes matches added by user
+  const userRows = tableBody.querySelectorAll(".user-added");
+  userRows.forEach(row => row.remove());
 }
