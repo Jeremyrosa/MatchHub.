@@ -123,26 +123,26 @@ function startCountdown(targetDate, countdownId, row, statusCell) { // function 
   const now = new Date().getTime();
   const timeLeft = countDownTime - now;
 
-  if (timeLeft <= 0) { // when countdown reaches 0, row changes from "Upcoming" to "Match Started"/"Ongoing"
-    clearInterval(interval);
+  if (timeLeft <= 0 && timeLeft > -90 * 60 * 1000) { // when countdown reaches 0, row changes from "Upcoming" to "Match Started"/"Ongoing"
     document.getElementById(countdownId).innerHTML = "Match Started";
     row.classList.remove("upcoming");
     row.classList.add("ongoing");
     statusCell.textContent = "Ongoing";
-
-    setTimeout(() => {
-      row.classList.remove("ongoing");
-      row.classList.add("completed");
-      statusCell.textContent = "Completed";
-      document.getElementById(countdownId).innerHTML = "Completed";
-
-      // moves finished matches to the bottom of the table and labels them as "Completed"
-      const tableBody = document.getElementById("matchTable").getElementsByTagName("tbody")[0];
-      tableBody.appendChild(row);
-    }, 90 * 60 * 1000); // match lasts 90 minutes in milliseconds
-
     return;
   }
+
+  if (timeLeft <= -90 * 60 * 1000) { // match becomes "completed" after match is ongoing for 90 minutes
+    clearInterval(interval);
+    row.classList.remove("upcoming", "ongoing");
+    row.classList.add("completed");
+    statusCell.textContent = "Completed";
+    document.getElementById(countdownId).innerHTML = "Completed";
+
+    // moves finished matches to the bottom "Completed" section
+    const tableBody = document.getElementById("matchTable").getElementsByTagName("tbody")[0];
+    tableBody.appendChild(row);
+    return;
+  } 
 
   // time calculated in days, hours, mins, secs
   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
