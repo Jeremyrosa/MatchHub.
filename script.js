@@ -130,41 +130,44 @@ function addMatch() { // creates new rows with new match dates
 
 function startCountdown(targetDate, countdownId, row, statusCell) { // function that starts/ends countdowns
   const countDownTime = targetDate.getTime();
+  const matchDuration = 90 * 60 * 1000; // match lasts 90 minutes
 
   const interval = setInterval(() => {
-  // calculating time remaining
-  const now = new Date().getTime();
-  const timeLeft = countDownTime - now;
+    const now = new Date().getTime();
+    const timeLeft = countDownTime - now; // keep original variable name
 
-  if (timeLeft <= 0 && timeLeft > -90 * 60 * 1000) { // when countdown reaches 0, row changes from "Upcoming" to "Match Started"/"Ongoing"
-    document.getElementById(countdownId).innerHTML = "Match Started";
-    row.classList.remove("upcoming");
-    row.classList.add("ongoing");
-    statusCell.textContent = "Ongoing";
-    return;
-  }
+    if (timeLeft > 0) { 
+      // calculating time remaining
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-  if (timeLeft <= -90 * 60 * 1000) { // match becomes "completed" after match is ongoing for 90 minutes
-    clearInterval(interval);
-    row.classList.remove("upcoming", "ongoing");
-    row.classList.add("completed");
-    statusCell.textContent = "Completed";
-    document.getElementById(countdownId).innerHTML = "Completed";
+      document.getElementById(countdownId).innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else if (now - countDownTime < matchDuration) {
+      // when countdown reaches 0, row changes from "Upcoming" to "Match Started"/"Ongoing"
+      row.classList.remove("upcoming");
+      row.classList.add("ongoing");
+      statusCell.textContent = "Ongoing";
 
-    // moves finished matches to the bottom "Completed" section
-    const tableBody = document.getElementById("matchTable").getElementsByTagName("tbody")[0];
-    tableBody.appendChild(row);
-    return;
-  } 
+      const ongoingLeft = matchDuration - (now - countDownTime);
+      const minutes = Math.floor((ongoingLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((ongoingLeft % (1000 * 60)) / 1000);
 
-  // time calculated in days, hours, mins, secs
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      document.getElementById(countdownId).innerHTML = `${minutes}m ${seconds}s`;
+    } else {
+      // match completed
+      clearInterval(interval);
+      row.classList.remove("ongoing", "upcoming");
+      row.classList.add("completed");
+      statusCell.textContent = "Completed";
+      document.getElementById(countdownId).innerHTML = "Completed";
 
-  document.getElementById(countdownId).innerHTML = // countdown display format
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      // moves finished matches to the bottom of the table and labels them as "Completed"
+      const tableBody = document.getElementById("matchTable").getElementsByTagName("tbody")[0];
+      tableBody.appendChild(row);
+    }
   }, 1000);
 }
 
@@ -209,11 +212,14 @@ function upcomingMatchesCountdown() { // identifies which rows are "upcoming"
       }
 
       // check if past or upcoming dates
-      if (dates.getTime() < new Date().getTime()) {
-        // for past dates, mark as completed
+      if (Date.now() - dates.getTime() < 90 * 60 * 1000 && Date.now() >= dates.getTime()) {
+      // match started but still ongoing
+        startCountdown(dates, countdownId, row, statusCell);
+      } else if (dates.getTime() < Date.now()) {
+     // for past dates, mark as completed
         markAsCompleted(row, statusCell, countdownCell);
       } else {
-        // for future dates, start countdown
+     // for future dates, start countdown
         startCountdown(dates, countdownId, row, statusCell);
       }
     }
