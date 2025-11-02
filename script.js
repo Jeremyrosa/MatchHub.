@@ -51,8 +51,19 @@ function loadMatches(){
       // start countcountdown for future dates
       startCountdown(dates, countdownId, newRow, statusCell);
     }
-
-    tableBody.appendChild(newRow);
+    // Insert matches above completed matches
+    const rows = Array.from(tableBody.rows);
+    let inserted = false;
+    for (let r of rows) {
+      if (r.classList.contains("completed")) {
+        tableBody.insertBefore(newRow, r);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) {
+      tableBody.appendChild(newRow);
+    }
   }
 }
 
