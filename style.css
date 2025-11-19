@@ -25,8 +25,14 @@ header {
 button {
   width: 100pt;
   height: 30pt;
+  margin-left: 10pt;
   border-radius: 6pt;
+  border-color: #cce5ff;
+  background-color: #cce5ff;
+  transition: all 0.3s ease;
 }
+
+button:hover{transform:scale(1.2)}
 
 input{
   height: 20pt;
