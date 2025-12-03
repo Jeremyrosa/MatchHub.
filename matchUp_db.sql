@@ -12,7 +12,7 @@ CREATE TABLE users(
 CREATE TABLE teams(
     teamid INT AUTO_INCREMENT PRIMARY KEY,
     team_name VARCHAR(50) NOT NULL,
-    home_city VARCHAR(100) NOT NULL
+    -- hometown VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE matches(
@@ -35,3 +35,10 @@ CREATE TABLE scores(
     last_match_score INT DEFAULT 0,
     FOREIGN KEY (team_id) REFERENCES teams(teamid)
 );
+
+-- test 
+INSERT INTO teams VALUES
+(1, 'FC Barcelona')
+(2, 'Argentina')
+(3, 'Portugal')
+(4, 'Santos FC')
