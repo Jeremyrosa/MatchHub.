@@ -1,5 +1,5 @@
+DROP DATABASE IF EXISTS Match_Up;
 CREATE DATABASE Match_Up;
-
 USE Match_Up;
 
 CREATE TABLE users(
@@ -17,13 +17,21 @@ CREATE TABLE teams(
 
 CREATE TABLE matches(
     macthid INT AUTO_INCREMENT PRIMARY KEY,
-    team_a VARCHAR(50) NOT NULL,
-    team_b VARCHAR(50) NOT NULL,
+    team_a_id INT NOT NULL,
+    team_b_id INT NOT NULL,
     match_date DATETIME NOT NULL,
-    match_status VARCHAR(50) ENUM('Upcoming','Ongoing','Completed') DEFAULT 'Upcoming'
-    winner INT DEFAULT NULL,
+    match_status ENUM('Upcoming','Ongoing','Completed') DEFAULT 'Upcoming',
+    winner_id INT DEFAULT NULL,
     FOREIGN KEY (team_a_id) REFERENCES teams(teamid), -- refers to team's table id
     FOREIGN KEY (team_b_id) REFERENCES teams(teamid),
     FOREIGN KEY (winner_id) REFERENCES teams(teamid)
 );
 
+CREATE TABLE scores(
+    scoreid INT AUTO_INCREMENT PRIMARY KEY,
+    team_id INT NOT NULL,
+    total_wins INT DEFAULT 0,
+    total_losses INT DEFAULT 0,
+    last_match_score INT DEFAULT 0,
+    FOREIGN KEY (team_id) REFERENCES teams(teamid)
+);
