@@ -2,7 +2,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     event.preventDefault();
 
     let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let password = document.getElementById("password").value.trim();
 
     fetch("login.php", {
         method: "POST",
@@ -18,7 +18,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
             alert("Login successful.");
             window.location.href = "upcomingGames.html";
         } else {
-            alert("Invalid username or password.");
+            alert(data.message || "Invalid username or password.");
         }
     })
 
