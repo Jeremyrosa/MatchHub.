@@ -18,7 +18,7 @@ $stmt->execute();
 $stmt->store_result();
 
 if ($stmt->num_rows === 0) {
-    $stmt = $conn->prepare("SELECT adminpw FROM admin WHERE username = ?");
+    $stmt = $conn->prepare("SELECT adminpw FROM admin WHERE admin_username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
