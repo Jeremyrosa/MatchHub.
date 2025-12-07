@@ -20,7 +20,7 @@ p {
 
 body {
   height: 100vh;
-  background-image: url('backgr.png'); 
+  background-image: url('images/backgr.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -196,4 +196,5 @@ body.login-page {
 .login {
   background-color: #80A1E9;
   color: #fff;
+
 }
