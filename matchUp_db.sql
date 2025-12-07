@@ -12,14 +12,13 @@ CREATE TABLE users(
 CREATE TABLE admin(
     adminid INT AUTO_INCREMENT PRIMARY KEY,
     admin_email VARCHAR(100) NOT NULL UNIQUE,
-    username VARCHAR(50) NOT NULL UNIQUE,
+    admin_username VARCHAR(50) NOT NULL UNIQUE,
     adminpw VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE teams(
     teamid INT AUTO_INCREMENT PRIMARY KEY,
-    team_name VARCHAR(50) NOT NULL,
-    -- hometown VARCHAR(100) NOT NULL
+    team_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE matches(
@@ -29,7 +28,7 @@ CREATE TABLE matches(
     match_date DATETIME NOT NULL,
     match_status ENUM('Upcoming','Ongoing','Completed') DEFAULT 'Upcoming',
     winner_id INT DEFAULT NULL,
-    FOREIGN KEY (team_a_id) REFERENCES teams(teamid), -- refers to team's table id
+    FOREIGN KEY (team_a_id) REFERENCES teams(teamid),
     FOREIGN KEY (team_b_id) REFERENCES teams(teamid),
     FOREIGN KEY (winner_id) REFERENCES teams(teamid)
 );
