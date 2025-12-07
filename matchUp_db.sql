@@ -5,8 +5,8 @@ USE Match_Up;
 CREATE TABLE users(
     userid INT AUTO_INCREMENT PRIMARY KEY,
     user_email VARCHAR(100) NOT NULL UNIQUE,
-    username VARCHAR(50) NOT NULL,
-    userpw VARCHAR(50) NOT NULL
+    username VARCHAR(50) NOT NULL UNIQUE,
+    userpw VARCHAR(300) NOT NULL
 );
 
 CREATE TABLE admin(
