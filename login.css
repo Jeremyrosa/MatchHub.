@@ -1,7 +1,7 @@
 
 /* Login page background */
 body.login-page {
-  background-image: url('backg2.png');
+  background-image: url('images/backg2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -68,4 +68,5 @@ body.login-page {
   background-color: #80A1E9;
   color: #fff;
 }
+
 
