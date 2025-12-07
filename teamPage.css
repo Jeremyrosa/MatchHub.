@@ -53,3 +53,143 @@
   .btn:hover {
     transform: scale(1.05);
   }
+
+
+
+/* Page background */
+body {
+    background-image: url('bg3_.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+
+/* Page Title */
+.team-page-title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 60px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Conference Headers */
+.conference-title {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Team container grid */
+.teams-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+/* Team cards */
+.team-card {
+    background-color: #C5D3EC;
+    color: #000;
+    width: 280px;
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+/* Team logo */
+.team-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+/* Team name */
+.team-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-family: 'Carter One', sans-serif;
+}
+
+/* Stats text */
+.stats {
+    font-size: 16px;
+    margin: 4px 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.label {
+    font-weight: bold;
+}
+
+/* Recent form bubbles */
+.form {
+    margin-top: 10px;
+}
+
+.form span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 50%;
+    margin: 2px;
+    font-size: 13px;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.W { background: #2ecc71; }
+.D { background: #f39c12; }
+.L { background: #e74c3c; }
+
+/* MLS link button */
+.team-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #214AC7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.team-link:hover {
+    text-decoration: underline;
+    color: #102a7c;
+}
+
+@media (max-width: 600px) {
+    .team-card {
+        width: 90%;
+    }
+}
+
+.live-data {
+  margin-top: 50px;
+  padding: 20px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.live-data h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
