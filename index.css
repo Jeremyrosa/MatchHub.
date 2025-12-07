@@ -125,7 +125,7 @@ body {
 
 /* For Login Page */
 
-body.login-page {
+.login-page {
   background-image: url('backgr2.png');
   background-size: cover;
   background-position: center;
@@ -198,3 +198,4 @@ body.login-page {
   color: #fff;
 
 }
+
