@@ -1,5 +1,4 @@
 <?php
-
 header("Content-Type: application/json");
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -19,7 +18,7 @@ $stmt->execute();
 $stmt->store_result();
 
 if ($stmt->num_rows === 0) {
-    echo json_encode(["success" => false]);
+    echo json_encode(["success" => false, "message" => "Invalid user credentials."]);
     exit();
 }
 
@@ -29,10 +28,9 @@ $stmt->fetch();
 if ($password === $db_password) {
     echo json_encode(["success" => true]);
 } else {
-    echo json_encode(["success" => false]);
+    echo json_encode(["success" => false, "message" => "Incorrect password."]);
 }
 
 $stmt->close();
 $conn->close();
-
 ?>
