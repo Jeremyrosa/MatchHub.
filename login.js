@@ -9,8 +9,13 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         },
         body: JSON.stringify({ username: username, password: password })
     })
-});
 
-function createAccount(){
-    
-}m
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Login successful.");
+        } else {
+            alert("Invalid username or password.");
+        }
+    })
+});
