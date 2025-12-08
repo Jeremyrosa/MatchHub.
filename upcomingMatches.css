@@ -35,6 +35,7 @@ button {
   border-color: #cce5ff;
   background-color: #cce5ff;
   transition: all 0.3s ease;
+  font-family: 'Carter One', sans-serif;
 }
 
 button:hover{transform:scale(1.2)}
@@ -45,6 +46,7 @@ input{
   margin: 5pt;
   padding: 5px 10px;
   border-radius: 6pt;
+  font-family: 'Carter One', sans-serif;
 }
 
 /* so content isn't hidden under fixed header */
@@ -58,13 +60,14 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    font-family: Arial, sans-serif;
+    font-family: 'Carter One', sans-serif;
   }
   th {
     padding: 12px;
     border: 1px solid #9a9a9a;
     text-align: center;
     background-color: black;
+    
   }
 
   td {
@@ -87,4 +90,23 @@ body {
     color: #ffffff;
     font-style: italic;
   }
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  font-family: 'Carter One', sans-serif;
+}
+
+.logo-img {
+  width: auto;
+  height: auto;
+}
+
+.site-title {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
 
