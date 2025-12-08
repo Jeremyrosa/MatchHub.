@@ -15,6 +15,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            localStorage.setItem("loggedIn", "true");
             window.location.href = "upcomingMatches.html";
         } else {
             alert(data.message || "Invalid username or password.");
