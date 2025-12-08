@@ -17,4 +17,13 @@ document.getElementById("regForm").addEventListener("submit", function(e) {
         })
     })
 
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            localStorage.setItem("loggedIn", "true");
+            window.location.href = "teamPage.html";
+        } else {
+            alert(data.message);
+        }
+    })
 });
