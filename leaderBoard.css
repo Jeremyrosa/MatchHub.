@@ -93,13 +93,14 @@ tr:hover {
   z-index: 1000;
 }
 
-.API-containers {
+.API-containers table{
   display:grid;
   grid-template-columns: 1fr 1.2fr 1.2fr;
   gap: 20px;
   padding: 20px;
   max-width: 1400px;
   margin: auto;
+  background: #1f2937
 }
 
 .box {
