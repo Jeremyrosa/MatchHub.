@@ -54,7 +54,7 @@
     const buttonsDiv = document.getElementById("home-buttons");
     document.addEventListener("DOMContentLoaded", function() {
       if (localStorage.getItem("loggedIn") === "true") {
-          buttonsDiv.innerHTML = `<button class="btn logout" onclick="logout()">Logout</button>`;
+          buttonsDiv.innerHTML = `<button class="btn login" onclick="logout()">Logout</button>`;
       }
     });
   </script>
