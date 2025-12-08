@@ -18,6 +18,12 @@ $stmt->bind_param("s", $username);
 $stmt->execute();
 $stmt->store_result();
 
+if ($stmt->num_rows > 0) {
+    echo json_encode(["success" => false, "message" => "Username already taken"]);
+    exit();
+}
+
+$stmt->close();
 
 $stmt->close();
 $conn->close();
