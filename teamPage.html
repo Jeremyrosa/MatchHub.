@@ -321,6 +321,12 @@
 
       teamCards.forEach(card => {
         const teamName = card.querySelector(".team-name").textContent.toLowerCase();
+
+        if (teamName.includes(searchValue)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
       });
     });
   </script>
