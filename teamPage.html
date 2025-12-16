@@ -309,20 +309,19 @@
 </html>
 
   <script>
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
     if (localStorage.getItem("loggedIn") !== "true") {
         window.location.href = "login.html";
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const searchBar = document.querySelector(".search-bar");
-      const teamCards = document.querySelectorAll(".team-card");
+    const searchBar = document.querySelector(".search-bar");
+    const teamCards = document.querySelectorAll(".team-card");
 
-      if (localStorage.getItem("loggedIn") !== "true") {
-        searchBar.style.display = "block";
-      } else {
-        searchBar.style.display = "none";
-      }
-    });
+    if (isLoggedIn) {
+      searchBar.style.display = "block";
+      searchBar.disabled = false;
+    }
 
     searchBar.addEventListener("input", function () {
       const searchValue = searchBar.value.toLowerCase();
