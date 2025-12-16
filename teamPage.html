@@ -314,10 +314,16 @@
     }
 
     const searchBar = document.querySelector(".search-bar");
-    searchBar.style.display = "block";
     const teamCards = document.querySelectorAll(".team-card");
 
+    if (localStorage.getItem("loggedIn") !== "true") {
+      searchBar.disabled = true;
+      searchBar.placeholder = "Login to search teams";
+    }
+
     searchBar.addEventListener("input", function () {
+      if (localStorage.getItem("loggedIn") !== "true") return;
+      
       const searchValue = searchBar.value.toLowerCase();
 
       teamCards.forEach(card => {
