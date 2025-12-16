@@ -313,17 +313,18 @@
         window.location.href = "login.html";
     }
 
-    const searchBar = document.querySelector(".search-bar");
-    const teamCards = document.querySelectorAll(".team-card");
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBar = document.querySelector(".search-bar");
+      const teamCards = document.querySelectorAll(".team-card");
 
-    if (localStorage.getItem("loggedIn") !== "true") {
-      searchBar.style.display = "block";
-    } else {
-      searchBar.style.display = "none";
-    }
+      if (localStorage.getItem("loggedIn") !== "true") {
+        searchBar.style.display = "block";
+      } else {
+        searchBar.style.display = "none";
+      }
+    });
 
     searchBar.addEventListener("input", function () {
-
       const searchValue = searchBar.value.toLowerCase();
 
       teamCards.forEach(card => {
