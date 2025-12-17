@@ -13,31 +13,13 @@ CREATE TABLE admin(
     adminid INT AUTO_INCREMENT PRIMARY KEY,
     admin_email VARCHAR(100) NOT NULL UNIQUE,
     admin_username VARCHAR(50) NOT NULL UNIQUE,
-    adminpw VARCHAR(50) NOT NULL
+    adminpw VARCHAR(300) NOT NULL
 );
 
-CREATE TABLE teams(
-    teamid INT AUTO_INCREMENT PRIMARY KEY,
-    team_name VARCHAR(50) NOT NULL
-);
+CREATE USER 'matchup_user'@'localhost' INDENTIFIED BY 'secure_password';
 
-CREATE TABLE matches(
-    matchid INT AUTO_INCREMENT PRIMARY KEY,
-    team_a_id INT NOT NULL,
-    team_b_id INT NOT NULL,
-    match_date DATETIME NOT NULL,
-    match_status ENUM('Upcoming','Ongoing','Completed') DEFAULT 'Upcoming',
-    winner_id INT DEFAULT NULL,
-    FOREIGN KEY (team_a_id) REFERENCES teams(teamid),
-    FOREIGN KEY (team_b_id) REFERENCES teams(teamid),
-    FOREIGN KEY (winner_id) REFERENCES teams(teamid)
-);
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON Match_Up.*
+TO 'matchup_user'@'localhost';
 
-CREATE TABLE scores(
-    scoreid INT AUTO_INCREMENT PRIMARY KEY,
-    team_id INT NOT NULL,
-    total_wins INT DEFAULT 0,
-    total_losses INT DEFAULT 0,
-    last_match_score INT DEFAULT 0,
-    FOREIGN KEY (team_id) REFERENCES teams(teamid)
-);
+FLUSH PRIVILEGES;
