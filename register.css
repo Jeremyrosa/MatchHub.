@@ -102,6 +102,7 @@ body.reg-page {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   color: white;
   display: flex;
   justify-content: center;
@@ -116,6 +117,7 @@ body.reg-page {
   opacity: 0;
   pointer-events: none;
 }
+
 
 
 
