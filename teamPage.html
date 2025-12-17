@@ -17,7 +17,7 @@
                 <li><a href="leaderBoard.html">LEADERBOARD</a></li>
                 <li><a href="upcomingMatches.html">MATCHES</a></li>
               </ul>
-              <input type="text" class="search-bar" placeholder="Search..." />
+              <input type="text" class="search-bar" placeholder="Search..."/>
             </nav>
           </header>
 
@@ -309,10 +309,28 @@
 </html>
 
   <script>
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
     if (localStorage.getItem("loggedIn") !== "true") {
         window.location.href = "login.html";
     }
-  </script>
 
+    const searchBar = document.querySelector(".search-bar");
+    const teamCards = document.querySelectorAll(".team-card");
+
+    if (isLoggedIn) {
+      searchBar.style.display = "block";
+      searchBar.disabled = false;
+    }
+
+    searchBar.addEventListener("input", function () {
+      const searchValue = searchBar.value.toLowerCase();
+
+      teamCards.forEach(card => {
+        const teamName = card.querySelector(".team-name").textContent.toLowerCase();
+        card.style.display = teamName.includes(searchValue) ? "block" : "none";
+      });
+    });
+  </script>
 
 </html>
