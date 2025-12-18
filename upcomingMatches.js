@@ -42,7 +42,7 @@ function loadMatches(){
 
     timeCell.dataset.time = dates.getTime();
     statusCell.textContent = "Upcoming";
-    const countdownId = "countdown_" + match.matchTime;
+    const countdownId = "countdown_" + Date.now() + Math.floor(Math.random() * 1000);
     countdownCell.id = countdownId;
 
     const now = Date.now();
