@@ -1,0 +1,106 @@
+body {
+    background: #111827;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Page split */
+.page-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Panels */
+.left-panel,
+.right-panel {
+    background: #1f2937;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tab {
+    flex: 1;
+    padding: 8px;
+    background: #374151;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #2563eb;
+}
+
+/* Match list rows */
+.match-row {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-bottom: 1px solid #374151;
+}
+
+.match-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* View button */
+.view-btn {
+    background: #2563eb;
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.view-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Match details */
+.details-card {
+    text-align: center;
+}
+
+.details-card img {
+    width: 60px;
+}
+
+.teams {
+    display: flex;
+    justify-content: space-around;
+    margin: 16px 0;
+}
+
+.score {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.countdown {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #facc15;
+}
+
+.placeholder,
+.empty {
+    color: #9ca3af;
+    text-align: center;
+    margin-top: 30px;
+}
