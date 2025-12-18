@@ -93,6 +93,13 @@ tr:hover {
   z-index: 1000;
 }
 
+.standings {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  
+}
+
 api-sports-widget img {
   width: auto;
   height: auto;
