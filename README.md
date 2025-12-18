@@ -24,8 +24,7 @@ and track upcoming games using countdown timers until kickoff.
 # MySQL
 # SQL
 
-# External API Used
-# Soccer / MLS API
+# Soccer / MLS API: www.api-football.com/documentation-v3#tag/Widgets
 
 # Team Vote
 # Our team votes for the website SteelBeam
@@ -33,7 +32,7 @@ and track upcoming games using countdown timers until kickoff.
 API Used:
 www.api-football.com/documentation-v3#tag/Widgets
 
-Sources:
+#Sources:
 www.geeksforgeeks.org/
 www.w3schools.com/
 
