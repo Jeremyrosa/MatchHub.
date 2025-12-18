@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>MatchHub - MLS Matches</title>
     
+    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="Matches.css">
-    <link rel="stylesheet" href="common.css" />
 
     <script defer src="Matches.js"></script>
 </head>
