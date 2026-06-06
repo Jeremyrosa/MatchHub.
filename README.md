@@ -14,7 +14,7 @@ to provide a clear and organized tracking experience.
 - Shari Li - JavaScript, PHP
 - Jeremy Jimenez - HTML, CSS, Video Presentation, Project Integration
 
-## Technologies Used
+## Technologies
 - HTML
 - CSS
 - JavaScript
