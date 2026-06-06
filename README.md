@@ -23,7 +23,7 @@ to provide a clear and organized tracking experience.
 - SQL
 
 ## Resources
-- Git: clone https://github.com/Jeremyrosa/MatchHub..git
-- Project Report (website screenshots): [CSIT 337 - Final Paper (1).pdf](./CSIT%20337%20-%20Final%20Paper%20(1).pdf)
+- git clone https://github.com/Jeremyrosa/MatchHub..git
+- Project Report (website screenshots): [CSIT 337 - Final Paper (1).pdf](./docs/CSIT%20337%20-%20Final%20Paper%20(1).pdf)
 - Soccer / MLS API: www.api-football.com/documentation-v3#tag/Widgets
 - Sources: www.geeksforgeeks.org/, www.w3schools.com/
