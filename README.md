@@ -8,6 +8,8 @@ and track upcoming games using countdown timers until kickoff.
 Each match is categorized as Upcoming, Ongoing, or Completed
 to provide a clear and organized tracking experience.
 
+---
+
 ## Group Members
 - Elianny Rodriguez - JavaScript, SQL, PHP
 - Jeanne Exantus - HTML, CSS, Presentation Materials
@@ -21,6 +23,8 @@ to provide a clear and organized tracking experience.
 - PHP
 - MySQL
 - SQL
+
+---
 
 ## Resources
 - git clone https://github.com/Jeremyrosa/MatchHub..git
